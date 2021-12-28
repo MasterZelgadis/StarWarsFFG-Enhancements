@@ -24,7 +24,10 @@ export async function intercept_vehicle_roll(...args) {
     if (!game.settings.get("ffg-star-wars-enhancements", "vehicle-roller")) {
         return args;
     }
-
+    if (!args[0].hasOwnProperty('actor')) {
+        // this is an empty roll; no actor
+        return args;
+    }
     let actor_type = args[0].actor.type;
     if (actor_type !== 'vehicle') {
         log(module_name, 'Found roll from non-vehicle; ignoring')
@@ -151,10 +154,6 @@ function sleep(ms) {
  */
 export function register_crew(...args) {
     if (!game.settings.get("ffg-star-wars-enhancements", "vehicle-roller")) {
-        return args;
-    }
-    if (!args[0].hasOwnProperty('actor')) {
-        // this is an empty roll; no actor
         return args;
     }
     // check if this is an actor being dragged onto a vehicle
