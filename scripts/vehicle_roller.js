@@ -153,6 +153,10 @@ export function register_crew(...args) {
     if (!game.settings.get("ffg-star-wars-enhancements", "vehicle-roller")) {
         return args;
     }
+    if (!args[0].hasOwnProperty('actor')) {
+        // this is an empty roll; no actor
+        return args;
+    }
     // check if this is an actor being dragged onto a vehicle
     let vehicle_actor = args[0];
     let drag_actor = game.actors.get(args[2].id);

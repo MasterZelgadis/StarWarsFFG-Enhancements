@@ -1,3 +1,6 @@
+`foundry-7_release-2` - 2021-12-28
+* Fix for vehicle roller breaking empty roller (thanks `Dexcellence`!)
+
 `foundry-7_release-1` - 2021-12-21
 * NEW FEATURE: Add ability to show minion group (max) size
 * NEW FEATURE: Add ability to use actor dice pool with vehicle weapon rolls
